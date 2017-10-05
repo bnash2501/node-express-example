@@ -8,15 +8,21 @@ router.get('/', function(req, res, next) {
   var query = JSON.stringify(req.query);
   var cookies = JSON.stringify(req.cookies);
   var signedCookies = JSON.stringify(req.signedCookies);
+  var $title = 'Not logged in';
 
-  console.log(`current cookies in request: ${cookies}`)
+  // console.log(`current cookies in request: ${cookies}`);
+  // console.log(`cookie ? ${req.cookies['testCookie']}`);
   var randomNumber=Math.random().toString();
   randomNumber=randomNumber.substring(2,randomNumber.length);
-  res.cookie('cokkieName',randomNumber, { maxAge: 900000 })
-  console.log('cookie have created successfully');
+  res.cookie('testCookie',randomNumber, { maxAge: 900000 });
+  // console.log('cookie have created successfully');
 
+  if (typeof req.cookies['testCookie'] !== 'undefined') {
+    console.log('logged in');
+    $title = 'Logged in';
+  }
   res.render('index', {
-    title: 'Express',
+    title: $title,
     request : {
       headers: headers,
       params: params,
