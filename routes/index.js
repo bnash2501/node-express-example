@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   console.log(`current cookies in request: ${cookies}`)
   var randomNumber=Math.random().toString();
   randomNumber=randomNumber.substring(2,randomNumber.length);
-  res.cookie('cokkieName',randomNumber, { maxAge: 900000, httpOnly: true })
+  res.cookie('cokkieName',randomNumber, { maxAge: 900000 })
   console.log('cookie have created successfully');
 
   res.render('index', {

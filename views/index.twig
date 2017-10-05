@@ -7,4 +7,7 @@
   <h3>Query</h3></h4><div>{{request.query}}</div>
   <h3>Cookies</h3><div>{{request.cookies}}</div>
   <h3>Signed Cookies</h3><div>{{request.signedCookies}}</div>
+  <button onclick="window.webView.webviewMessage('clicked from webview');")> Post Data </button>
+  <a href="/users">Users</a>
+  <a href="http://www.cj-nw-test.ci3.p2devcloud.com/">Test Link</a>
 {% endblock %}
