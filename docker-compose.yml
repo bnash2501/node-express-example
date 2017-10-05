@@ -1,0 +1,26 @@
+version: "2"
+services:
+  node:
+    labels:
+      com.dnsdock.name: www
+      com.dnsdock.image: express
+    image: "node:8"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      DNSDOCK_NAME: www
+      DNSDOCK_IMAGE: express
+      NODE_ENV: development
+      EXPRESS_PORT: 3001
+      LOCAL_URL: http://api.bassapp.vm:3001/
+      ENVIRONMENT: local
+    volumes:
+      - ./:/home/node/app
+    network_mode: "bridge"
+    expose:
+      - "8081"
+      - "3001"
+      - "80"
+    ports:
+      - "80:3001"
+    command: "npm start"
