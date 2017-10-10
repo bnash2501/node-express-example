@@ -14,10 +14,10 @@ router.get('/', function(req, res, next) {
   // console.log(`cookie ? ${req.cookies['testCookie']}`);
   var randomNumber=Math.random().toString();
   randomNumber=randomNumber.substring(2,randomNumber.length);
-  res.cookie('testCookie',randomNumber, { maxAge: 900000 });
+  // res.cookie('loggedin',randomNumber, { maxAge: 900000 });
   // console.log('cookie have created successfully');
 
-  if (typeof req.cookies['testCookie'] !== 'undefined') {
+  if (typeof req.cookies['loggedin'] !== 'undefined') {
     console.log('logged in');
     $title = 'Logged in';
   }
